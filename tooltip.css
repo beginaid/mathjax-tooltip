@@ -17,3 +17,7 @@
   transform: translateY(4px);
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
+
+a[href*="mjx-eqn"] {
+  cursor: default;
+}
