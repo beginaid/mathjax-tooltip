@@ -6,12 +6,16 @@ A lightweight, dependency-free tooltip system for MathJax equations, built with 
   <img src="mathjax-tooltip-demo.gif" alt="Demo GIF" style="width: 100%; max-width: 800px;">
 </p>
 
+<br>
+
 ## 🔧 Features
 
 - Hover over `\ref` or `\eqref` links to display a tooltip with the referenced equation
 - Click to pin or unpin the tooltip
 - Smooth, accessible transitions (keyboard-friendly and ARIA-compliant)
 - No external dependencies
+
+<br>
 
 ## ⚙️ Installation (via CDN)
 
@@ -21,6 +25,8 @@ Add the following to your HTML:
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/beginaid/mathjax-tooltip@main/tooltip.css" />
 <script src="https://cdn.jsdelivr.net/gh/beginaid/mathjax-tooltip@main/tooltip.js"></script>
 ```
+
+<br>
 
 ## 📋 Requirements
 
@@ -36,6 +42,8 @@ Configure MathJax with the following snippet:
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 ```
+
+<br>
 
 ## 🧪 Example Usage with MathJax
 
@@ -57,6 +65,8 @@ As shown in Equation \eqref{eq:main}, the coefficient $a_{pq}$ is computed by di
 This will produce a reference such as Equation (1).  
 When a user hovers over “(1)”, a tooltip appears showing the full content of the referenced equation.
 
+<br>
+
 ### 💡 Optional: HTML Embedding Example
 
 If you are embedding MathJax equations directly in HTML, you might do:
@@ -72,10 +82,14 @@ If you are embedding MathJax equations directly in HTML, you might do:
 </div>
 ```
 
+<br>
+
 ## 🙋 Contributing
 
 Found a bug or want to propose a feature?  
 Feel free to [open an issue](https://github.com/beginaid/mathjax-tooltip/issues) or submit a pull request!
+
+<br>
 
 ## 📄 License
 
