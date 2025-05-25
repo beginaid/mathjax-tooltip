@@ -30,7 +30,7 @@ Configure MathJax with the following snippet:
 <script>
   MathJax = {
     tex: {
-      tags: "ams", // required for \label and \eqref to work
+      tags: "ams", // required for \label, \eqref and \ref to work
     },
   };
 </script>
