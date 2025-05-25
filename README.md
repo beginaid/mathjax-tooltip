@@ -12,7 +12,7 @@ A lightweight, dependency-free tooltip system for MathJax equations, built with 
 
 - Hover over `\ref` or `\eqref` links to display a tooltip with the referenced equation
 - Click to pin or unpin the tooltip
-- Smooth, accessible transitions (keyboard-friendly and ARIA-compliant)
+- Smooth, accessible transitions
 - No external dependencies
 
 <br>
