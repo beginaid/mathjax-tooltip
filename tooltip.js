@@ -51,12 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showTooltip(anchor, pin = false) {
-      const targetId = decodeURIComponent(
-        (anchor.getAttribute("href") || "").split("#")[1] || ""
-      );
-      const ref = document
-        .getElementById(targetId)
-        ?.closest("mjx-container, .MathJax");
+      const targetId = decodeURIComponent((anchor.getAttribute("href") || "").split("#")[1] || "");
+      const ref = document.getElementById(targetId)?.closest("mjx-container, .MathJax");
       if (!ref) return;
 
       const rect = anchor.getBoundingClientRect();
