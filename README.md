@@ -3,19 +3,19 @@
 A lightweight, dependency-free tooltip system for MathJax equations, built with plain JavaScript and CSS.
 
 <p align="center">
-  <img src="mathjax-tooltip-demo.gif" alt="デモGIF" style="width: 100%; max-width: 800px;">
+  <img src="mathjax-tooltip-demo.gif" alt="Demo GIF" style="width: 100%; max-width: 800px;">
 </p>
 
 ## Features
 
 - Hover over `\ref` or `\eqref` links to display a tooltip with the referenced equation
 - Click to pin or unpin the tooltip
-- Smooth, accessible transitions
+- Smooth, accessible transitions (keyboard-friendly and ARIA-compliant)
 - No external dependencies
 
-## CDN Usage (via jsDelivr)
+## Installation (via CDN)
 
-Include the following in your HTML to use MathJax Tooltip:
+Add the following to your HTML:
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/beginaid/mathjax-tooltip@main/tooltip.css" />
@@ -24,13 +24,13 @@ Include the following in your HTML to use MathJax Tooltip:
 
 ## Requirements
 
-The following MathJax configuration is required.
+Configure MathJax with the following snippet:
 
-```js
+```html
 <script>
   MathJax = {
-    tex : {
-      tags: "ams",
+    tex: {
+      tags: "ams", // required for \label and \eqref to work
     },
   };
 </script>
@@ -43,7 +43,7 @@ Here is an example of a labeled equation and a corresponding reference using `\e
 
 ```latex
 \begin{align}
-a_{pq} = \frac{1}{(n_{p}-q)!}\lim_{x\to x_{p}}\frac{d^{n_{p}-q}}{dx^{n_{p}-q}}\left\{(x-x_{p})^{n_{p}}\frac{P(x)}{Q(x)}\right\}
+a_{pq} = \frac{1}{(n_{p}-q)!} \lim_{x\to x_{p}} \frac{d^{n_{p}-q}}{dx^{n_{p}-q}} \left\{ (x-x_{p})^{n_{p}} \frac{P(x)}{Q(x)} \right\}
 \label{eq:main}
 \end{align}
 ```
@@ -56,6 +56,26 @@ As shown in Equation \eqref{eq:main}, the coefficient $a_{pq}$ is computed by di
 
 This will produce a reference such as Equation (1).  
 When a user hovers over “(1)”, a tooltip appears showing the full content of the referenced equation.
+
+### Optional: HTML Embedding Example
+
+If you are embedding MathJax equations directly in HTML, you might do:
+
+```html
+<div>
+  <script type="math/tex; mode=display">
+    \begin{align}
+    a_{pq} = \frac{1}{(n_{p}-q)!} \lim_{x\to x_{p}} \frac{d^{n_{p}-q}}{dx^{n_{p}-q}} \left\{ (x-x_{p})^{n_{p}} \frac{P(x)}{Q(x)} \right\}
+    \label{eq:main}
+    \end{align}
+  </script>
+</div>
+```
+
+## Contributing
+
+Found a bug or want to propose a feature?  
+Feel free to [open an issue](https://github.com/beginaid/mathjax-tooltip/issues) or submit a pull request!
 
 ## License
 
