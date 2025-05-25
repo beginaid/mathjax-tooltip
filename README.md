@@ -34,7 +34,7 @@ The following MathJax configuration is required.
     },
   };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 ```
 
 ## Example Usage with MathJax
