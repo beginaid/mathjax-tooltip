@@ -1,0 +1,19 @@
+.mathjax-tooltip {
+  position: absolute;
+  display: none;
+  padding: 0.75em 1em;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.5em;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  color: #222;
+  font-size: 1em;
+  line-height: 1.5;
+  max-width: 90vw;
+  white-space: normal;
+  word-break: break-word;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
