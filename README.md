@@ -22,8 +22,8 @@ A lightweight, dependency-free tooltip system for MathJax equations, built with 
 Add the following to your HTML:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/beginaid/mathjax-tooltip@main/tooltip.css" />
-<script src="https://cdn.jsdelivr.net/gh/beginaid/mathjax-tooltip@main/tooltip.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/beginaid/mathjax-tooltip@1/tooltip.css" />
+<script src="https://cdn.jsdelivr.net/gh/beginaid/mathjax-tooltip@1/tooltip.js"></script>
 ```
 
 <br>
