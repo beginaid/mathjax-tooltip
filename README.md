@@ -1,28 +1,26 @@
 # MathJax Tooltip
 
-Lightweight tooltip system for MathJax equations using plain JavaScript and CSS.
+A lightweight, dependency-free tooltip system for MathJax equations, built with plain JavaScript and CSS.
 
 ## Features
 
-- Hover to show a tooltip for `\ref` and `\eqref` links
-- Click to pin/unpin the tooltip
-- Smooth transitions
-- Fully accessible and dependency-free
+- Hover over `\ref` or `\eqref` links to display a tooltip with the referenced equation
+- Click to pin or unpin the tooltip
+- Smooth, accessible transitions
+- No external dependencies
 
 ## CDN Usage (via jsDelivr)
 
+Include the following in your HTML to use MathJax Tooltip:
+
 ```html
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/beginaid/mathjax-tooltip@v1.0.0/tooltip.css"
-/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/beginaid/mathjax-tooltip@v1.0.0/tooltip.css" />
 <script src="https://cdn.jsdelivr.net/gh/beginaid/mathjax-tooltip@v1.0.0/tooltip.js"></script>
 ```
 
 ## Example Usage with MathJax
 
-Here is an example of a labeled equation and
-how to reference it using `\eqref`:
+Here is an example of a labeled equation and a corresponding reference using `\eqref`:
 
 ```latex
 \begin{align}
@@ -31,14 +29,14 @@ a_{pq} = \frac{1}{(n_{p}-q)!}\lim_{x\to x_{p}}\frac{d^{n_{p}-q}}{dx^{n_{p}-q}}\l
 \end{align}
 ```
 
-You can refer to the equation elsewhere in your document using a LaTeX reference such as:
+You can reference this equation elsewhere in your document like so:
 
 ```latex
-As shown in Equation\eqref{eq:main}, the coefficient $a_{pq}$ is computed by differentiating a weighted rational function.
+As shown in Equation \eqref{eq:main}, the coefficient $a_{pq}$ is computed by differentiating a weighted rational function.
 ```
 
-This will produce a reference like **Equation (1)**.
-When users hover over the reference link, a tooltip will display the full equation content.
+This will produce a reference such as Equation (1).  
+When a user hovers over “(1)”, a tooltip appears showing the full content of the referenced equation.
 
 ## License
 
