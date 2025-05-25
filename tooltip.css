@@ -19,5 +19,5 @@
 }
 
 a[href*="mjx-eqn"] {
-  cursor: default;
+  cursor: pointer;
 }
