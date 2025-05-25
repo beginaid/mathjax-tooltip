@@ -2,6 +2,10 @@
 
 A lightweight, dependency-free tooltip system for MathJax equations, built with plain JavaScript and CSS.
 
+<p align="center">
+  <img src="mathjax-tooltip-demo.gif" alt="デモGIF" style="width: 100%; max-width: 800px;">
+</p>
+
 ## Features
 
 - Hover over `\ref` or `\eqref` links to display a tooltip with the referenced equation
@@ -14,8 +18,23 @@ A lightweight, dependency-free tooltip system for MathJax equations, built with 
 Include the following in your HTML to use MathJax Tooltip:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/beginaid/mathjax-tooltip@v1.0.0/tooltip.css" />
-<script src="https://cdn.jsdelivr.net/gh/beginaid/mathjax-tooltip@v1.0.0/tooltip.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/beginaid/mathjax-tooltip@main/tooltip.css" />
+<script src="https://cdn.jsdelivr.net/gh/beginaid/mathjax-tooltip@main/tooltip.js"></script>
+```
+
+## Requirements
+
+The following MathJax configuration is required.
+
+```js
+<script>
+  MathJax = {
+    tex : {
+      tags: "ams",
+    },
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
 ```
 
 ## Example Usage with MathJax
