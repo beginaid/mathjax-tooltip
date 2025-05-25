@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   function initTooltip() {
-    const tooltip = createTooltip();
+    const tooltip = createOrReuseTooltip();
     let isPinned = false;
     let currentAnchor = null;
     let hideTimer = null;
@@ -43,10 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    function createTooltip() {
-      const el = document.createElement("div");
-      el.className = "mathjax-tooltip";
-      document.body.appendChild(el);
+    function createOrReuseTooltip() {
+      let el = document.querySelector(".mathjax-tooltip");
+      if (!el) {
+        el = document.createElement("div");
+        el.className = "mathjax-tooltip";
+        document.body.appendChild(el);
+      }
       return el;
     }
 
@@ -55,25 +58,27 @@ document.addEventListener("DOMContentLoaded", () => {
       const ref = document.getElementById(targetId)?.closest("mjx-container, .MathJax");
       if (!ref) return;
 
-      const rect = anchor.getBoundingClientRect();
       tooltip.innerHTML = "";
       tooltip.appendChild(ref.cloneNode(true));
 
+      // 一時的に表示してサイズ取得
+      tooltip.style.visibility = "hidden";
+      tooltip.style.display = "block";
+      tooltip.style.left = "0px";
+      tooltip.style.top = "0px";
+
+      const tooltipWidth = tooltip.offsetWidth;
+      const top = anchor.getBoundingClientRect().bottom + 10 + window.scrollY;
+      const left = Math.max(10, Math.min((window.innerWidth - tooltipWidth) / 2, window.innerWidth - tooltipWidth - 10));
+
       Object.assign(tooltip.style, {
-        top: `${rect.bottom + 10 + window.scrollY}px`,
-        left: `${rect.left + window.scrollX}px`,
-        display: "block",
-        opacity: "0",
-        pointerEvents: "none",
-        transform: "translateY(4px)",
+        top: `${top}px`,
+        left: `${left}px`,
+        visibility: "visible",
+        opacity: "1",
+        pointerEvents: "auto",
+        transform: "translateY(0)",
       });
-
-      // Trigger reflow to ensure transition works
-      void tooltip.offsetHeight;
-
-      tooltip.style.opacity = "1";
-      tooltip.style.pointerEvents = "auto";
-      tooltip.style.transform = "translateY(0)";
 
       isPinned = pin;
       currentAnchor = anchor;
