@@ -56,6 +56,8 @@ a_{pq} = \frac{1}{(n_{p}-q)!} \lim_{x\to x_{p}} \frac{d^{n_{p}-q}}{dx^{n_{p}-q}}
 \end{align}
 ```
 
+<br>
+
 You can reference this equation elsewhere in your document like so:
 
 ```latex
