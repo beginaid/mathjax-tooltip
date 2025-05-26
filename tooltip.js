@@ -61,23 +61,26 @@ document.addEventListener("DOMContentLoaded", () => {
       tooltip.innerHTML = "";
       tooltip.appendChild(ref.cloneNode(true));
 
-      // 一時的に表示してサイズ取得
-      tooltip.style.visibility = "hidden";
-      tooltip.style.display = "block";
-      tooltip.style.left = "0px";
-      tooltip.style.top = "0px";
-
       const tooltipWidth = tooltip.offsetWidth;
-      const top = anchor.getBoundingClientRect().bottom + 10 + window.scrollY;
-      const left = Math.max(10, Math.min((window.innerWidth - tooltipWidth) / 2, window.innerWidth - tooltipWidth - 10));
+      const scrollLeft = window.scrollX;
+      const scrollTop = window.scrollY;
+      const top = anchor.getBoundingClientRect().bottom + 10 + scrollTop;
+
+      const main = document.querySelector("main, #primary, .site-main");
+      let left;
+
+      if (main) {
+        const mainRect = main.getBoundingClientRect();
+        left = mainRect.left + scrollLeft + (mainRect.width - tooltipWidth) / 2;
+      } else {
+        // フォールバック：画面全体の中央
+        left = (window.innerWidth - tooltipWidth) / 2 + scrollLeft;
+      }
 
       Object.assign(tooltip.style, {
         top: `${top}px`,
         left: `${left}px`,
         visibility: "visible",
-        opacity: "1",
-        pointerEvents: "auto",
-        transform: "translateY(0)",
       });
 
       isPinned = pin;
@@ -86,8 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function hideTooltip() {
       tooltip.style.opacity = "0";
-      tooltip.style.pointerEvents = "none";
-      tooltip.style.transform = "translateY(4px)";
       setTimeout(() => {
         if (!isPinned) {
           tooltip.style.display = "none";
