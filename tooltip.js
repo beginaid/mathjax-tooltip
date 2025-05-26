@@ -24,8 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       anchor.addEventListener("click", (event) => {
         event.preventDefault();
-        event.stopPropagation();
-
         if (isPinned && currentAnchor === anchor) {
           unpinTooltip();
         } else {
@@ -58,24 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const ref = document.getElementById(targetId)?.closest("mjx-container, .MathJax");
       if (!ref) return;
 
+      tooltip.style.display = "block";
       tooltip.innerHTML = "";
       tooltip.appendChild(ref.cloneNode(true));
 
-      const tooltipWidth = tooltip.offsetWidth;
       const scrollLeft = window.scrollX;
       const scrollTop = window.scrollY;
       const top = anchor.getBoundingClientRect().bottom + 10 + scrollTop;
 
-      const main = document.querySelector("main, #primary, .site-main");
-      let left;
-
-      if (main) {
-        const mainRect = main.getBoundingClientRect();
-        left = mainRect.left + scrollLeft + (mainRect.width - tooltipWidth) / 2;
-      } else {
-        // フォールバック：画面全体の中央
-        left = (window.innerWidth - tooltipWidth) / 2 + scrollLeft;
-      }
+      const rect = (document.querySelector("main") || document.body).getBoundingClientRect();
+      const left = rect.left + scrollLeft + (rect.width - tooltip.offsetWidth) / 2;
 
       Object.assign(tooltip.style, {
         top: `${top}px`,
@@ -88,11 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function hideTooltip() {
-      tooltip.style.opacity = "0";
       setTimeout(() => {
         if (!isPinned) {
           tooltip.style.display = "none";
-          tooltip.innerHTML = "";
           currentAnchor = null;
         }
       }, 200);
