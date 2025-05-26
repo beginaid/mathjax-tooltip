@@ -3,7 +3,7 @@
 A lightweight, dependency-free tooltip system for MathJax equations, built with plain JavaScript and CSS.
 
 <p align="center">
-  <img src="mathjax-tooltip-demo.gif" alt="Demo GIF" style="width: 100%; max-width: 800px;">
+  <img src="mathjax-tooltip-demo.gif" alt="Demo GIF" style="width: 100%; max-width: 800px; border-radius: 8px;">
 </p>
 
 <br>
