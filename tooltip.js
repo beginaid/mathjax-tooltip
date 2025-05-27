@@ -56,9 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const ref = document.getElementById(targetId)?.closest("mjx-container, .MathJax");
       if (!ref) return;
 
-      tooltip.style.display = "block";
       tooltip.innerHTML = "";
       tooltip.appendChild(ref.cloneNode(true));
+
+      tooltip.style.display = "block";
+      tooltip.style.visibility = "hidden";
 
       const scrollLeft = window.scrollX;
       const scrollTop = window.scrollY;
