@@ -36,6 +36,7 @@ Configure MathJax with the following snippet:
 <script>
   MathJax = {
     tex: {
+      inlineMath: [["$", "$"]],
       tags: "ams", // required for \label, \eqref and \ref to work
     },
   };
@@ -61,7 +62,7 @@ a_{pq} = \frac{1}{(n_{p}-q)!} \lim_{x\to x_{p}} \frac{d^{n_{p}-q}}{dx^{n_{p}-q}}
 You can reference this equation elsewhere in your document like so:
 
 ```latex
-As shown in Equation \eqref{eq:main}, the coefficient $a_{pq}$ is computed by differentiating a weighted rational function.
+As shown in Equation $\eqref{eq:main}$, the coefficient $a_{pq}$ is computed by differentiating a weighted rational function.
 ```
 
 This will produce a reference such as Equation (1).  

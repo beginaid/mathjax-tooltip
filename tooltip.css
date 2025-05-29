@@ -1,11 +1,16 @@
 .mathjax-tooltip {
+  position: absolute;
+  padding: 1em;
+  background: #fff;
   border: 1px solid #ddd;
   border-radius: 0.5em;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   max-width: 90vw;
-  max-height: 90vh;
+  max-height: 80vh;
   overflow-x: auto;
   overflow-y: hidden;
+  z-index: 9999;
+  transform: translateY(4px);
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 

@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       anchor.addEventListener("click", (event) => {
         event.preventDefault();
+        event.stopPropagation();
+
         if (isPinned && currentAnchor === anchor) {
           unpinTooltip();
         } else {
@@ -59,13 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
       tooltip.innerHTML = "";
       tooltip.appendChild(ref.cloneNode(true));
 
-      tooltip.style.display = "block";
       tooltip.style.visibility = "hidden";
+      tooltip.style.display = "block";
 
       const scrollLeft = window.scrollX;
       const scrollTop = window.scrollY;
       const top = anchor.getBoundingClientRect().bottom + 10 + scrollTop;
-
       const rect = (document.querySelector("main") || document.body).getBoundingClientRect();
       const left = rect.left + scrollLeft + (rect.width - tooltip.offsetWidth) / 2;
 
@@ -73,6 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
         top: `${top}px`,
         left: `${left}px`,
         visibility: "visible",
+        opacity: "1",
+        pointerEvents: "auto",
+        transform: "translateY(0)",
       });
 
       isPinned = pin;
@@ -80,9 +84,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function hideTooltip() {
+      tooltip.style.opacity = "0";
+      tooltip.style.pointerEvents = "none";
+      tooltip.style.transform = "translateY(4px)";
       setTimeout(() => {
         if (!isPinned) {
           tooltip.style.display = "none";
+          tooltip.innerHTML = "";
           currentAnchor = null;
         }
       }, 200);
